@@ -10,17 +10,7 @@ app = Flask(__name__)
 @app.route('/index')
 def index():
     user = "Евгений"
-    return f'''<html>
-    <head>
-        {% if title %}
-        <title> Главная - Gazon</title>
-        {% else %}
-        <title>Welcome to Gazon!</title>
-    </head>
-    <body>
-        <h1>Добрый день, {user}!</h1>
-    </body>
-</html>'''
+    return render_template('index.html')
 
 if __name__ == "__main__":
     app.run()
