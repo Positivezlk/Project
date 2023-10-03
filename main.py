@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import os
 user = {'username': 'Miguel'}
 # -*- coding: utf-8 -*-
@@ -9,13 +9,16 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    user = {'username': 'miguel'}
-    return '''<html>
+    user = "Евгений"
+    return f'''<html>
     <head>
-        <title>{{ Главная }} - Газон</title>
+        {% if title %}
+        <title> Главная - Gazon</title>
+        {% else %}
+        <title>Welcome to Gazon!</title>
     </head>
     <body>
-        <h1>Hello, {{ user.username }}!</h1>
+        <h1>Добрый день, {user}!</h1>
     </body>
 </html>'''
 
